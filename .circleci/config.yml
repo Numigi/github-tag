@@ -8,9 +8,6 @@ jobs:
           name: Build dockers
           command: docker-compose build
       - run:
-          name: Go build
-          command: docker-compose run --rm cli go build
-      - run:
           name: Run tests
           command: docker-compose run --rm cli go test ./pkg/tag
 workflows:
