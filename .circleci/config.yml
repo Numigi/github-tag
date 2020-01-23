@@ -9,7 +9,7 @@ jobs:
           command: docker-compose build
       - run:
           name: Run tests
-          command: docker-compose run --rm cli go test ./pkg/tag
+          command: docker-compose run --rm cli go test ./pkg/tag -v
 workflows:
   version: 2
   build:
