@@ -68,7 +68,7 @@ func _createNextTag(owner, repo, branch, filter, message string) (*github.Tag, e
 		return nil, err;
 	}
 
-	client, err := getGithubClient()
+	client, err := getTestingGithubClient()
 	if err != nil {
 		return nil, err;
 	}
@@ -89,7 +89,7 @@ func _getNextTag(owner, repo, filter string) (string, error) {
 
 
 func _getCurrentTag(owner, repo, filter string) (string, error) {
-	client, err := getGithubClient()
+	client, err := getTestingGithubClient()
 	if err != nil {
 		return "", err;
 	}

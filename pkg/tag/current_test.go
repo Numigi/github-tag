@@ -55,9 +55,9 @@ func Test_CurrentTag(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
-		client, err := getGithubClient()
-		if(err != nil){
-			t.Errorf("getGithubClient() errored with: %v", err)
+		client, err := getTestingGithubClient()
+		if err != nil {
+			t.Errorf(err.Error())
 			return
 		}
 
@@ -77,7 +77,7 @@ func Test_CurrentTag(t *testing.T) {
 
 
 func Test_CurrentTagTarballURL(t *testing.T) {
-	client, err := getGithubClient()
+	client, err := getTestingGithubClient()
 	if(err != nil){
 		t.Errorf(err.Error())
 		return

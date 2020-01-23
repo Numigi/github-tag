@@ -31,7 +31,7 @@ const (
 )
 
 
-func getGithubClient() (*github.Client, error) {
+func getTestingGithubClient() (*github.Client, error) {
 	accessTokenVarEnv := "GITHUB_ACCESS_TOKEN"
 	accessToken := os.Getenv(accessTokenVarEnv)
 	if accessToken == "" {
