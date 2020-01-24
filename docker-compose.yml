@@ -6,6 +6,3 @@ services:
       context: .
     environment:
       - GITHUB_ACCESS_TOKEN=${NWS_GITHUB_ACCESS_TOKEN}
-
-volumes:
-  go:
