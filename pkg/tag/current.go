@@ -24,7 +24,7 @@ import (
 )
 
 
-func GetCurrentTag(client *github.Client, owner, repo, filter string) (string, error) {
+func GetCurrentTag(client *GithubClient, owner, repo, filter string) (string, error) {
 	tag, err := getCurrentTagObject(client, owner, repo, filter)
 	if err != nil {
 		return "", err
@@ -33,7 +33,7 @@ func GetCurrentTag(client *github.Client, owner, repo, filter string) (string, e
 }
 
 
-func GetCurrentTagTarballURL(client *github.Client, owner, repo, filter string) (string, error) {
+func GetCurrentTagTarballURL(client *GithubClient, owner, repo, filter string) (string, error) {
 	tag, err := getCurrentTagObject(client, owner, repo, filter)
 	if err != nil {
 		return "", err
@@ -42,7 +42,7 @@ func GetCurrentTagTarballURL(client *github.Client, owner, repo, filter string) 
 }
 
 
-func getCurrentTagObject(client *github.Client, owner, repo, filter string) (*github.RepositoryTag, error) {
+func getCurrentTagObject(client *GithubClient, owner, repo, filter string) (*github.RepositoryTag, error) {
 	page := 0
 	for {
 		tags, err := listTags(client, owner, repo, page)
@@ -69,7 +69,7 @@ func getCurrentTagObject(client *github.Client, owner, repo, filter string) (*gi
 const numberOfTagPerPage = 100
 
 
-func listTags(client *github.Client, owner string, repo string, page int) ([]*github.RepositoryTag, error) {
+func listTags(client *GithubClient, owner string, repo string, page int) ([]*github.RepositoryTag, error) {
 	listOptions := github.ListOptions {
 		Page:    page,
 		PerPage: numberOfTagPerPage,

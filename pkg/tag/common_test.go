@@ -18,7 +18,6 @@ package tag
 
 import (
 	"fmt"
-	"github.com/google/go-github/v28/github"
 	"os"
 )
 
@@ -31,7 +30,7 @@ const (
 )
 
 
-func getTestingGithubClient() (*github.Client, error) {
+func getTestingGithubClient() (*GithubClient, error) {
 	accessTokenVarEnv := "GITHUB_ACCESS_TOKEN"
 	accessToken := os.Getenv(accessTokenVarEnv)
 	if accessToken == "" {

@@ -18,11 +18,10 @@ package tag
 
 import (
 	"context"
-	"github.com/google/go-github/v28/github"
 )
 
 
-func getBranchSHA(client *github.Client, owner, repo, branchName string) (string, error) {
+func getBranchSHA(client *GithubClient, owner, repo, branchName string) (string, error) {
 	ctx := context.Background()
 	branch, _, err := client.Repositories.GetBranch(ctx, owner, repo, branchName)
 	if err != nil {
@@ -32,7 +31,7 @@ func getBranchSHA(client *github.Client, owner, repo, branchName string) (string
 }
 
 
-func getTagSHA(client *github.Client, owner, repo, tagName string) (string, error) {
+func getTagSHA(client *GithubClient, owner, repo, tagName string) (string, error) {
 	ctx := context.Background()
 	tag, _, err := client.Git.GetTag(ctx, owner, repo, tagName)
 	if err != nil {

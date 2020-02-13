@@ -22,7 +22,12 @@ import (
 	"golang.org/x/oauth2"
 )
 
-func GetGithubClientFromToken(token string) (*github.Client, error) {
+// Alias to avoid propagation of dependency of go-github.
+// Modules that use github-tag will not need to explicitly depend on go-github.
+type GithubClient = github.Client
+
+
+func GetGithubClientFromToken(token string) (*GithubClient, error) {
 	ctx := context.Background()
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: token},

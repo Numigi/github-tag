@@ -18,11 +18,10 @@ package tag
 
 import (
 	"context"
-	"github.com/google/go-github/v28/github"
 )
 
 
-func GetCommitMessage(client *github.Client, owner, repo, commitSha string) (string, error) {
+func GetCommitMessage(client *GithubClient, owner, repo, commitSha string) (string, error) {
 	ctx := context.Background()
 	commit, _, err := client.Git.GetCommit(ctx, owner, repo, commitSha)
 	if err != nil {
