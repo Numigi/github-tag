@@ -22,7 +22,10 @@ import (
 	"golang.org/x/oauth2"
 )
 
-func GetGithubClientFromToken(token string) (*github.Client, error) {
+type GithubClient = github.Client
+
+
+func GetGithubClientFromToken(token string) (*GithubClient, error) {
 	ctx := context.Background()
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: token},

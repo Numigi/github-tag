@@ -24,7 +24,7 @@ import (
 
 
 
-func CreateTag(client *github.Client, owner, repo, branch, tagName, message string) (*github.Tag, error) {
+func CreateTag(client *GithubClient, owner, repo, branch, tagName, message string) (*github.Tag, error) {
 	sha, err := getBranchSHA(client, owner, repo, branch)
 	if err != nil {
 		return nil, err
