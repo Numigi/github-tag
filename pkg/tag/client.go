@@ -22,6 +22,8 @@ import (
 	"golang.org/x/oauth2"
 )
 
+// Alias to avoid propagation of dependency of go-github.
+// Modules that use github-tag will not need to explicitly depend on go-github.
 type GithubClient = github.Client
 
 
